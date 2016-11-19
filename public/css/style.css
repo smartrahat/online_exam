@@ -1,0 +1,217 @@
+body{
+	background: repeat scroll 0 0 #ededed;
+}
+.wrapper{
+	padding-right: 0 !important;
+	padding-left: 0 !important;
+}
+header,
+footer{
+	padding: 10px;
+	/*background-color: #337ab7;*/
+	background-color: #222;
+	color: #FFF;
+	text-align: center;
+	clear: both;
+}
+.d-section{
+	background-color: #FFF;
+	padding: 10px;
+	margin: 10px;
+	border: 1px solid #BBB;
+	border-radius: 2px;
+}
+
+/*=======================================*\
+|			MESSAGE STARTS 				  |
+\*=======================================*/
+.msg_err{
+	color: #FF0000;
+	font-weight: bold;
+	line-height: 2em;
+}
+.msg_notice{
+	color: blue;
+	line-height: 2em;
+	font-weight: bold;
+}
+.msg_success{
+	color: green;
+	line-height: 2em;
+	font-weight: bold;
+}
+/*=======================================*\
+|			MESSAGE ENDS				  |
+\*=======================================*/
+
+/*=======================================*\
+|			LOGIN STARTS				  |
+\*=======================================*/
+.login{
+	position: relative;
+	width: 330px;
+	height: 300px;
+	margin: auto;
+	background-color: #DDD;
+	border-radius: 3em;
+	text-align: center;
+	color: #333;
+	box-shadow: 2px 2px 2px #000;
+}
+
+/*=======================================*\
+|			LOGIN ENDS					  |
+\*=======================================*/
+.logo{
+	margin: 0 auto;
+	text-align: center;
+	padding: 5em;
+	width: 150px;
+	height: auto;
+}
+.left{
+	float: left;
+	clear: both;
+}
+.rihgt{
+	float: right;
+	clear: both;
+}
+
+/*=======================================*\
+|			NAVBAR STARTS				  |
+\*=======================================*/
+.selected{
+	background: repeat scroll 0 0 #337ab7;
+	color: #FFF;
+	font-weight: bold;
+}
+.selected ul{
+    display:block;
+}
+.navbar{
+	margin: 0;
+	padding: 0;
+}
+.navbar ul{
+	background: repeat scroll 0 0 #222;
+	padding: 0;
+	margin: 0;
+	border-right: 1px solid #CCC;
+}
+.navbar ul li{
+	list-style-type: none;
+	/*border-bottom: 1px solid #CCC;*/
+	padding: 10px;
+}
+.navbar a{
+	color: #FFF;
+	line-height: 2em;
+	text-decoration: none;
+}
+.navbar ul li:hover{
+	background-color: #000;
+}
+.navbar a:hover{
+	color: #337ab7;
+}
+/*=======================================*\
+|			NAVBAR ENDS					  |
+\*=======================================*/
+
+.subject_list{
+	max-width: 100%;
+	max-height: 200px;
+	overflow: auto;
+	border: 1px solid #DDD;
+}
+
+/*======================================
+			Student Table Starts
+========================================*/
+.table-student th{
+	background: transparent -moz-linear-gradient(center top, #FFF, #CCC) repeat scroll 0% 0%;
+}
+.table-student tr:nth-child(odd){
+	background-color: #ced6df;
+}
+.table-student tr:hover{
+	background-color: #E3D9FA;
+}
+.table-student td,
+.table-student th{
+	text-align: center;
+	font-weight: bold;
+}
+/*=======================================
+			Student Table Ends
+=========================================*/
+
+/*======================================
+			Pagination Starts
+========================================*/
+.pagination-inactive{
+    display: inline-block;
+    background-color: #515151;
+    color: #fff;
+    padding: 8px;
+}
+.pagination-inactive:hover{
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+}
+.pagination-active{
+    display: inline-block;
+    background-color: #64a4ff;
+    color: #fff;
+    padding: 8px;
+    margin-bottom: 1em;
+}
+.pagination-active:hover{
+    color: #fff;
+    text-decoration: none;
+}
+/*=======================================
+			Pagination Ends
+=========================================*/
+
+.tab-content .active{
+    color: #000000 !important;
+}
+
+
+.element-box{
+    border: 1px solid #E90303;
+    background: #ff4040;
+    border-radius: 5px;
+    color: #f1f1f1;
+    margin: 1px;
+    padding-right: 0;
+}
+
+/*=======================================
+			Element Box Starts
+=========================================*/
+
+.element-box{
+    border: 1px solid #E90303;
+    background: #ff4040;
+    border-radius: 5px;
+    color: #f1f1f1;
+    margin: 1px;
+    padding-right: 0;
+}
+
+.element-box div{
+    float: right;
+    padding-left: 5px;
+}
+
+.element{
+    padding-top: 5px;
+}
+
+/*=======================================
+			Element Box Ends
+=========================================*/
