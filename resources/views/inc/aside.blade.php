@@ -36,13 +36,19 @@
                 <span>Subjects</span>
             </a>
         </li>
-        <li class="{{ isActive('questions') }}">
-            <a href="#">
+        <li class="{{ isActive('levels') }}">
+            <a href="{{ action('LevelController@index') }}">
+                <i class="fa fa-user"></i>
+                <span>Levels</span>
+            </a>
+        </li>
+        <li class="{{ isActive(['question*']) }}">
+            <a href="#question" role="button" data-toggle="collapse" data-parent="#accordion" aria-expanded="false" aria-controls="question">
                 <i class="fa fa-user"></i>
                 <span>Questions</span>
             </a>
             <ul id="question" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                <li class="{{ isActive(['question']) }}">
+                <li class="{{ isActive(['questions']) }}">
                     <a href="{{ action('QuestionController@index') }}">Question Sets</a>
                 </li>
                 <li class="{{ isActive(['question/create']) }}">

@@ -46,6 +46,11 @@ Route::get('subjects','SubjectController@index');
 Route::post('subject/store','SubjectController@store');
 Route::delete('subject/destroy/{id}','SubjectController@destroy');
 
+/** Levels */
+Route::get('levels','LevelController@index');
+Route::post('level/store','LevelController@store');
+Route::delete('level/destroy/{id}','LevelController@destroy');
+
 /** Questions */
 Route::get('questions','QuestionController@index');
 Route::get('question/create','QuestionController@create');
