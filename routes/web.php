@@ -45,3 +45,11 @@ Route::delete('department/destroy/{id}','DepartmentController@destroy');
 Route::get('subjects','SubjectController@index');
 Route::post('subject/store','SubjectController@store');
 Route::delete('subject/destroy/{id}','SubjectController@destroy');
+
+/** Questions */
+Route::get('questions','QuestionController@index');
+Route::get('question/create','QuestionController@create');
+Route::post('question/store','QuestionController@store');
+Route::get('question/edit/{id}','QuestionController@edit');
+Route::patch('question/{id}/update','QuestionController@update');
+Route::delete('question/destroy/{id}','QuestionController@destroy');

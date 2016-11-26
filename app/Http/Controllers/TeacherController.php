@@ -51,7 +51,7 @@ class TeacherController extends Controller
             $request->file('image')->move(base_path().'/public/images/teachers/', $image);
             $data = ($request->except(['image']));
             $data['image'] = $image;
-
+//dd($request->all());
             Teacher::create($data);
         }else{
             Teacher::create($request->except(['image']));

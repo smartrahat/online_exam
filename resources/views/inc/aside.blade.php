@@ -11,7 +11,9 @@
                 <span>Teachers</span>
             </a>
             <ul id="teacher" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                <li class="{{ isActive(['teachers']) }}"><a href="{{ action('TeacherController@index') }}">Teachers List</a></li>
+                <li class="{{ isActive(['teachers']) }}">
+                    <a href="{{ action('TeacherController@index') }}">Teachers List</a>
+                </li>
                 <li class="{{ isActive(['teacher/create']) }}"><a href="{{ action('TeacherController@create') }}">Add Teacher</a></li>
                 <li><a href="#">Extra</a></li>
             </ul>
@@ -34,10 +36,21 @@
                 <span>Subjects</span>
             </a>
         </li>
-
-        <a href="?page=notice">
-            <li>Notice</li>
-        </a>
+        <li class="{{ isActive('questions') }}">
+            <a href="#">
+                <i class="fa fa-user"></i>
+                <span>Questions</span>
+            </a>
+            <ul id="question" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                <li class="{{ isActive(['question']) }}">
+                    <a href="{{ action('QuestionController@index') }}">Question Sets</a>
+                </li>
+                <li class="{{ isActive(['question/create']) }}">
+                    <a href="{{ action('QuestionController@create') }}">Add New Question</a>
+                </li>
+                <li><a href="#">Extra</a></li>
+            </ul>
+        </li>
 
         <a href="?page=pages">
             <li>Pages</li>
