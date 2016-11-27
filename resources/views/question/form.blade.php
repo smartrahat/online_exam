@@ -33,7 +33,7 @@
 </div>
 <div class="form-group">
     {!! Form::label('answer1','Wrong Answer 1',['class'=>'control-label col-sm-3']) !!}
-    <div class="col-sm-6">
+    <div class="col-sm-6" id="answer">
         {!! Form::text('answer1',null,['class'=>'form-control','placeholder'=>'Write wrong answer, add more if needed','required']) !!}
         @if ($errors->has('answer1'))
             <span class="help-block">
@@ -41,10 +41,12 @@
             </span>
         @endif
     </div>
+    <button type="button" class="btn btn-success" onclick="return addAnswer('answer')"><i class="fa fa-plus"></i></button>
+    <button type="button" class="btn btn-success" onclick="return removeAnswer('answer')"><i class="fa fa-minus"></i></button>
 </div>
 <div class="form-group">
     {!! Form::label('correct1','Correct Answer 1',['class'=>'control-label col-sm-3']) !!}
-    <div class="col-sm-6">
+    <div class="col-sm-6" id="correct">
         {!! Form::text('correct1',null,['class'=>'form-control','placeholder'=>'Write right answer, add more for multiple choice','required']) !!}
         @if ($errors->has('correct1'))
             <span class="help-block">
@@ -52,154 +54,39 @@
             </span>
         @endif
     </div>
+    <button type="button" class="btn btn-success" onclick="return addAnswer('correct')"><i class="fa fa-plus"></i></button>
+    <button type="button" class="btn btn-success" onclick="return removeAnswer('correct')"><i class="fa fa-minus"></i></button>
 </div>
-{{--<div class="form-group">--}}
-    {{--{!! Form::label('religion','Religion',['class'=>'control-label col-sm-3']) !!}--}}
-    {{--<div class="col-sm-6">--}}
-        {{--{!! Form::select('religion',[],null,['class'=>'form-control','placeholder'=>'Select Religion']) !!}--}}
-        {{--@if ($errors->has('religion'))--}}
-            {{--<span class="help-block">--}}
-                {{--<strong>{{ $errors->first('religion') }}</strong>--}}
-            {{--</span>--}}
-        {{--@endif--}}
-    {{--</div>--}}
-{{--</div>--}}
-{{--<div class="form-group">--}}
-    {{--{!! Form::label('address_one','Address Line One',['class'=>'control-label col-sm-3']) !!}--}}
-    {{--<div class="col-sm-6">--}}
-        {{--{!! Form::text('address_one',null,['class'=>'form-control']) !!}--}}
-        {{--@if ($errors->has('address_one'))--}}
-            {{--<span class="help-block">--}}
-                {{--<strong>{{ $errors->first('address_one') }}</strong>--}}
-            {{--</span>--}}
-        {{--@endif--}}
-    {{--</div>--}}
-{{--</div>--}}
-{{--<div class="form-group">--}}
-    {{--{!! Form::label('address_two','Address Line Two',['class'=>'control-label col-sm-3']) !!}--}}
-    {{--<div class="col-sm-6">--}}
-        {{--{!! Form::text('address_two',null,['class'=>'form-control']) !!}--}}
-        {{--@if ($errors->has('address_two'))--}}
-            {{--<span class="help-block">--}}
-                {{--<strong>{{ $errors->first('address_two') }}</strong>--}}
-            {{--</span>--}}
-        {{--@endif--}}
-    {{--</div>--}}
-{{--</div>--}}
-{{--<div class="form-group">--}}
-    {{--{!! Form::label('country','Country',['class'=>'control-label col-sm-3']) !!}--}}
-    {{--<div class="col-sm-6">--}}
-        {{--{!! Form::text('country',null,['class'=>'form-control']) !!}--}}
-        {{--@if ($errors->has('country'))--}}
-            {{--<span class="help-block">--}}
-                {{--<strong>{{ $errors->first('country') }}</strong>--}}
-            {{--</span>--}}
-        {{--@endif--}}
-    {{--</div>--}}
-{{--</div>--}}
-{{--<div class="form-group">--}}
-    {{--{!! Form::label('state','State',['class'=>'control-label col-sm-3']) !!}--}}
-    {{--<div class="col-sm-6">--}}
-        {{--{!! Form::text('state',null,['class'=>'form-control']) !!}--}}
-        {{--@if ($errors->has('state'))--}}
-            {{--<span class="help-block">--}}
-                {{--<strong>{{ $errors->first('state') }}</strong>--}}
-            {{--</span>--}}
-        {{--@endif--}}
-    {{--</div>--}}
-{{--</div>--}}
-{{--<div class="form-group">--}}
-    {{--{!! Form::label('city','City',['class'=>'control-label col-sm-3']) !!}--}}
-    {{--<div class="col-sm-6">--}}
-        {{--{!! Form::text('city',null,['class'=>'form-control']) !!}--}}
-        {{--@if ($errors->has('city'))--}}
-            {{--<span class="help-block">--}}
-                {{--<strong>{{ $errors->first('city') }}</strong>--}}
-            {{--</span>--}}
-        {{--@endif--}}
-    {{--</div>--}}
-{{--</div>--}}
-{{--<div class="form-group">--}}
-    {{--{!! Form::label('postal','ZIP Code',['class'=>'control-label col-sm-3']) !!}--}}
-    {{--<div class="col-sm-6">--}}
-        {{--{!! Form::text('postal',null,['class'=>'form-control']) !!}--}}
-        {{--@if ($errors->has('postal'))--}}
-            {{--<span class="help-block">--}}
-                {{--<strong>{{ $errors->first('postal') }}</strong>--}}
-            {{--</span>--}}
-        {{--@endif--}}
-    {{--</div>--}}
-{{--</div>--}}
-{{--<div class="form-group">--}}
-    {{--{!! Form::label('phone','Phone',['class'=>'control-label col-sm-3']) !!}--}}
-    {{--<div class="col-sm-6">--}}
-        {{--{!! Form::text('phone',null,['class'=>'form-control']) !!}--}}
-        {{--@if ($errors->has('phone'))--}}
-            {{--<span class="help-block">--}}
-                {{--<strong>{{ $errors->first('phone') }}</strong>--}}
-            {{--</span>--}}
-        {{--@endif--}}
-    {{--</div>--}}
-{{--</div>--}}
-{{--<div class="form-group">--}}
-    {{--{!! Form::label('email','Email',['class'=>'control-label col-sm-3']) !!}--}}
-    {{--<div class="col-sm-6">--}}
-        {{--{!! Form::text('email',null,['class'=>'form-control']) !!}--}}
-        {{--@if ($errors->has('email'))--}}
-            {{--<span class="help-block">--}}
-                {{--<strong>{{ $errors->first('email') }}</strong>--}}
-            {{--</span>--}}
-        {{--@endif--}}
-    {{--</div>--}}
-{{--</div>--}}
-{{--<div class="form-group">--}}
-    {{--{!! Form::label('department_id','Department',['class'=>'control-label col-sm-3']) !!}--}}
-    {{--<div class="col-sm-6">--}}
-        {{--{!! Form::select('department_id',[],null,['class'=>'form-control','placeholder'=>'Select Department']) !!}--}}
-        {{--@if ($errors->has('department_id'))--}}
-            {{--<span class="help-block">--}}
-                {{--<strong>{{ $errors->first('department_id') }}</strong>--}}
-            {{--</span>--}}
-        {{--@endif--}}
-    {{--</div>--}}
-{{--</div>--}}
-{{--<div class="form-group">--}}
-    {{--{!! Form::label('dob','Date of Birth',['class'=>'control-label col-sm-3']) !!}--}}
-    {{--<div class="col-sm-6">--}}
-        {{--{!! Form::text('dob',null,['class'=>'form-control']) !!}--}}
-        {{--@if ($errors->has('dob'))--}}
-            {{--<span class="help-block">--}}
-                {{--<strong>{{ $errors->first('dob') }}</strong>--}}
-            {{--</span>--}}
-        {{--@endif--}}
-    {{--</div>--}}
-{{--</div>--}}
-{{--<div class="form-group">--}}
-    {{--{!! Form::label('joining','Joining Date',['class'=>'control-label col-sm-3']) !!}--}}
-    {{--<div class="col-sm-6">--}}
-        {{--{!! Form::text('joining',null,['class'=>'form-control']) !!}--}}
-        {{--@if ($errors->has('joining'))--}}
-            {{--<span class="help-block">--}}
-                {{--<strong>{{ $errors->first('joining') }}</strong>--}}
-            {{--</span>--}}
-        {{--@endif--}}
-    {{--</div>--}}
-{{--</div>--}}
-{{--<div class="form-group">--}}
-    {{--<img src="{{ asset('images/teachers') }}/{{ $question->image }}" alt="" id="blah" width="160px" height="160px" class="thumbnail" style="margin-left: 20%"/>--}}
-    {{--<label for="image" class="control-label col-sm-3">Image:</label>--}}
-    {{--<div class="col-sm-6">--}}
-        {{--<input name="image" type="file" id="exampleInputFile" onchange="readURL(this)" value="{{ old('image') }}">--}}
-        {{--<p class="help-block">Upload a picture of room</p>--}}
-        {{--@if ($errors->has('image'))--}}
-            {{--<span class="help-block">--}}
-                {{--<strong>{{ $errors->first('image') }}</strong>--}}
-            {{--</span>--}}
-        {{--@endif--}}
-    {{--</div>--}}
-{{--</div>--}}
 <div class="form-group text-center">
     {!! Form::submit('Save',['class'=>'btn btn-success']) !!}
     {!! Form::reset('Reset',['class'=>'btn btn-warning']) !!}
     <a href="#" role="button" class="btn btn-danger">Cancel</a>
 </div>
+
+@section('script')
+    <script>
+        function addAnswer(rw){
+            // get the last INPUT which NAME starts with ^= "answer"
+            var $input = $('input[name^="'+rw+'"]:last');
+
+            // Read the Number from that INPUT's NAME (i.e: 3 from "answer3")
+            // And increment that number by 1
+            var num = parseInt( $input.prop("name").match(/\d+/g), 10 ) +1;
+
+            // Clone it and assign the new NAME (i.e: from num 4 to NAME "answer4")
+            var $answer = $input.clone().prop('name', rw+num);
+
+            // >>> Append $answer wherever you want
+            $answer.appendTo($("#"+rw));
+        }
+
+        function removeAnswer(rw){
+            var $input = $('input[name^="'+rw+'"]:last');
+            if($input.prop('name') == rw+1){
+                alert('Error: Minimum 1 field needed');
+            }else{
+                $input.remove();
+            }
+        }
+    </script>
+@stop
